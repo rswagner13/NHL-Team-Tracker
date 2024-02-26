@@ -1,10 +1,10 @@
 
-export default function HomePage({ teams, setTeams, isWildCard, setWildCardStatus }) {
+export default function HomePage() {
 
 
     return(
         <>
-            <h1>Home Page</h1>
+            <h1 className="is-size-1">Welcome to NFL Team Tracker!</h1>
             <a href="/teams">Teams Page</a>
         </>
     )

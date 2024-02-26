@@ -2,22 +2,26 @@ import { useState, useEffect } from 'react'
 import { Routes, Route, Link } from 'react-router-dom'
 import HomePage from '../HomePage'
 import TeamsPage from '../TeamsPage'
+import TeamDetails from '../TeamDetails'
 import './styles.css'
 
 export default function App() {
   const [teams, setTeams] = useState()
   const [isWildCard, setWildCardStatus] = useState(false)
+  const [detailsData, setDetailsData] = useState([])
 
   async function getData (url) {
     const res = await fetch(url)
     const { wildCardIndicator,standings } = await res.json()
     setTeams(standings)
     setWildCardStatus(wildCardIndicator)
+    
 }
 
   useEffect(() => {
 
     getData('https://api-web.nhle.com/v1/standings/now')
+    
   }, [])
 
 
@@ -37,23 +41,22 @@ export default function App() {
       </nav>
         <Routes> 
           <Route path="/" element={
-            <HomePage
-            teams={teams}
-            setTeams={setTeams}
-            isWildCard={isWildCard}
-            setWildCardStatus={setWildCardStatus}
-            />}
+            teams? <HomePage
+            
+            /> : null}
           />
 
           <Route path='/teams' element={
-            <TeamsPage
+            teams? <TeamsPage
               teams={teams}
               setTeams={setTeams}
               refreshQueue={getData}
+              updateDetails={setDetailsData}
               isWildCard={isWildCard}
               setWildCardStatus={setWildCardStatus}
-            />}
+            /> : null}
           />
+          <Route path='/teams/:teamCode' element={<TeamDetails team={detailsData}/>}/>
         </Routes>
       </>
   )

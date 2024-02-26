@@ -1,0 +1,10 @@
+.container {
+    margin: 0 !important;
+}
+.team-container {
+    border: 2px solid black;
+    margin: 5px;
+}
+.table {
+    align-self: center;
+}
