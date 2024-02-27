@@ -1,13 +1,12 @@
-
 import { useEffect } from 'react'
-import { Link } from 'react-router-dom'
+import TeamCard from '../TeamCard'
 import './styles.css'
 
-export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, setWildCardStatus }) {
+export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, setWildCardStatus, updateDetails }) {
 
     const atlanticTeams = []
-    const centralTeams = []
     const metroTeams = []
+    const centralTeams = []
     const pacificTeams = []
 
     useEffect(() => {
@@ -15,89 +14,28 @@ export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, s
         refreshQueue('https://api-web.nhle.com/v1/standings/now')
     }, [])
 
-     for (let i = 0; i < teams.length; i++) {
-        if (teams[i].conferenceName === "Eastern" && teams[i].divisionName === "Atlantic") {
-            atlanticTeams.push({
-                "teamName": teams[i].teamName.default,
-                 "teamCode": teams[i].teamAbbrev.default,
-                "teamLogo": teams[i].teamLogo,
-                 "conferenceName": teams[i].conferenceName,
-                 "divisionName": teams[i].divisionName,
-                 "wins": teams[i].wins,
-                 "losses": teams[i].losses,
-                 "ties": teams[i].ties,
-             })
-        } else if (teams[i].conferenceName === "Eastern" && teams[i].divisionName === "Metropolitan") {
-            metroTeams.push({
-                "teamName": teams[i].teamName.default,
-                 "teamCode": teams[i].teamAbbrev.default,
-                "teamLogo": teams[i].teamLogo,
-                 "conferenceName": teams[i].conferenceName,
-                 "divisionName": teams[i].divisionName,
-                 "wins": teams[i].wins,
-                 "losses": teams[i].losses,
-                 "ties": teams[i].ties,
-            })
-        } else if (teams[i].conferenceName === "Western" && teams[i].divisionName === "Central") {
-            centralTeams.push({
-                "teamName": teams[i].teamName.default,
-                 "teamCode": teams[i].teamAbbrev.default,
-                "teamLogo": teams[i].teamLogo,
-                 "conferenceName": teams[i].conferenceName,
-                 "divisionName": teams[i].divisionName,
-                 "wins": teams[i].wins,
-                 "losses": teams[i].losses,
-                 "ties": teams[i].ties,
-            })
-        } else {
-            pacificTeams.push({
-                "teamName": teams[i].teamName.default,
-                 "teamCode": teams[i].teamAbbrev.default,
-                "teamLogo": teams[i].teamLogo,
-                 "conferenceName": teams[i].conferenceName,
-                 "divisionName": teams[i].divisionName,
-                 "wins": teams[i].wins,
-                 "losses": teams[i].losses,
-                 "ties": teams[i].ties,
-            })
+    let atlanticGallery = ' '
+    let metroGallery = ' '
+    let centralGallery = ' '
+    let pacificGallery = ' '
+
+    if(teams.length > 0) {
+        for (let i = 0; i < teams.length; i++) {
+            if (teams[i].conferenceName === "Eastern" && teams[i].divisionName === "Atlantic") {
+                atlanticTeams.push(teams[i])
+            } else if (teams[i].conferenceName === "Eastern" && teams[i].divisionName === "Metropolitan") {
+                metroTeams.push(teams[i])
+            } else if (teams[i].conferenceName === "Western" && teams[i].divisionName === "Central") {
+                centralTeams.push(teams[i])
+            } else {
+                pacificTeams.push(teams[i])
+            }
         }
-    }
-
-    console.log(atlanticTeams)
-
-    function printTeam(division) {
-        const arr = []
-        for(let i = 0; i < division.length; i++) {
-            arr.push(
-                <Link to={'/teams/' + division[i].teamCode} onClick={() => updateDetails(team)}>
-                    <div className="team-container column is-flex">
-                        <div className="team-logo image is-128x128">
-                            <img src={division[i].teamLogo}/>
-                        </div>
-                        <table className="table is-full-width">
-                            <thead>
-                                <tr>
-                                    <th><abbr title="Team Name">Name</abbr></th>
-                                    <th><abbr title="Wins">W</abbr></th>
-                                    <th><abbr title="Losses">L</abbr></th>
-                                    <th><abbr title="Ties">T</abbr></th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <th>{division[i].teamName}</th>
-                                    <td>{division[i].wins}</td>
-                                    <td>{division[i].losses}</td>
-                                    <td>{division[i].ties}</td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </Link>
-            )
-        }
-
-        return arr
+        
+        atlanticGallery = atlanticTeams.map(team => <TeamCard key={team.teamAbbrev.default} team={team} updateDetails={updateDetails}/>)
+        metroGallery = metroTeams.map(team => <TeamCard key={team.teamAbbrev.default} team={team} updateDetails={updateDetails}/>)
+        centralGallery = centralTeams.map(team => <TeamCard key={team.teamAbbrev.default} team={team} updateDetails={updateDetails}/>)
+        pacificGallery = pacificTeams.map(team => <TeamCard key={team.teamAbbrev.default} team={team} updateDetails={updateDetails}/>)
     }
 
     return (
@@ -107,18 +45,20 @@ export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, s
                 <div className="eastern-conference conference-container column is-half">
                     <h1 className="is-size-2 conference-name">Eastern Conference</h1>
                     <h1 className="is-size-4">Atlantic Division</h1>
-                    {printTeam(atlanticTeams)}
+                    {atlanticGallery}
                     <h1 className="is-size-4">Metropolitan Division</h1>
-                    {printTeam(metroTeams)}
+                    {metroGallery}
+
                 </div>
-                <div className="western-conference conference-container column is-half">
+                <div className="eastern-conference conference-container column is-half">
                     <h1 className="is-size-2 conference-name">Western Conference</h1>
                     <h1 className="is-size-4">Central Division</h1>
-                    {printTeam(centralTeams)}
+                    {centralGallery}
                     <h1 className="is-size-4">Pacific Division</h1>
-                    {printTeam(pacificTeams)}
+                    {pacificGallery}
                 </div>
             </div>
+
         </>
     )
 }

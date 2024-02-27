@@ -56,7 +56,7 @@ export default function App() {
               setWildCardStatus={setWildCardStatus}
             /> : null}
           />
-          <Route path='/teams/:teamCode' element={<TeamDetails team={detailsData}/>}/>
+          <Route path='/teams/:teamCode' element={ teams? <TeamDetails  team={detailsData}/> : null}/>
         </Routes>
       </>
   )
