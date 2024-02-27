@@ -1,0 +1,7 @@
+.image-carousel {
+    height: 60vh !important;
+    width: 70vw !important;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+}

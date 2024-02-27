@@ -7,7 +7,7 @@ NOTE: Remember that all routes on this page are prefixed with `localhost:3000/ap
 /* Require modules
 ---------------------------------------------------------- */
 const express = require('express')
-// Router allows us to handle routing outisde of server.js
+// Router allows us to handle routing outside of server.js
 const router = express.Router()
 
 
