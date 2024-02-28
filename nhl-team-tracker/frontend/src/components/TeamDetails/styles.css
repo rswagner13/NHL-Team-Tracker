@@ -1,0 +1,18 @@
+.background-image > img{
+    display: block !important;
+    position: absolute !important;
+    z-index: -1 !important;
+    opacity: 0.5 !important;
+    scale: 1.25;
+    text-align: center !important;
+    margin-top: 10vh;
+}
+
+.schedule-container {
+    overflow: scroll !important;
+    height: 50vh;
+}
+.roster-container {
+    overflow: scroll !important;
+    height: 50vh;
+}

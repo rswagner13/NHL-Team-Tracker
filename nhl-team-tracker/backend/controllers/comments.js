@@ -20,7 +20,7 @@ const db = require('../models')
 ---------------------------------------------------------- */
 // Index Route (GET/Read): Will display all comments
 router.get('/:teamId', function (req, res) {
-    db.Comment.find({ artworkId: req.params.teamId })
+    db.Comment.find({ teamId: req.params.teamId })
         .then(comments => res.json(comments))
 })
 

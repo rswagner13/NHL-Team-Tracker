@@ -1,6 +1,5 @@
 import axios from 'axios'
 
-
 export async function getComments(teamId) {
     const { data } = await axios.get(`/api/comments/${teamId}`)
     return data

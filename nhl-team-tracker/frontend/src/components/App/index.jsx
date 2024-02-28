@@ -3,19 +3,23 @@ import { Routes, Route, Link } from 'react-router-dom'
 import HomePage from '../HomePage'
 import TeamsPage from '../TeamsPage'
 import TeamDetails from '../TeamDetails'
+import PlayerInfo from '../PlayerInfo'
 import './styles.css'
 
 export default function App() {
   const [teams, setTeams] = useState()
   const [isWildCard, setWildCardStatus] = useState(false)
-  const [detailsData, setDetailsData] = useState([])
+  const [teamDetailsData, setTeamDetailsData] = useState([])
+  const [teamSchedule, setTeamSchedule] = useState([])
+  const [teamRoster, setTeamRoster] = useState([])
+  const [playerInfo, setPlayerInfo] = useState([])
+
 
   async function getData (url) {
     const res = await fetch(url)
     const { wildCardIndicator,standings } = await res.json()
     setTeams(standings)
     setWildCardStatus(wildCardIndicator)
-    
 }
 
   useEffect(() => {
@@ -51,12 +55,24 @@ export default function App() {
               teams={teams}
               setTeams={setTeams}
               refreshQueue={getData}
-              updateDetails={setDetailsData}
+              updateTeamDetails={setTeamDetailsData}
+              updateTeamSchedule={setTeamSchedule}
+              updateTeamRoster={setTeamRoster}
               isWildCard={isWildCard}
               setWildCardStatus={setWildCardStatus}
             /> : null}
           />
-          <Route path='/teams/:teamCode' element={<TeamDetails  team={detailsData}/>}/>
+          <Route path='/teams/:teamCode' element={
+            <TeamDetails 
+              team={teamDetailsData}
+              schedule={teamSchedule}
+              roster={teamRoster}
+              setPlayerInfo={setPlayerInfo}
+            />}
+          />
+          <Route path='/teams/:teamCode/:id' element={
+            <PlayerInfo playerInfo={playerInfo} />
+          }/>
         </Routes>
       </>
   )

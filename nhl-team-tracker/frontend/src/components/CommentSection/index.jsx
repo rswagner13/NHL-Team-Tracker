@@ -13,7 +13,7 @@ export default function CommentSection({ teamId }) {
 
     //Query the database for all comments for this team
     useEffect(() => {
-        getComments( teamId )
+        getComments(teamId)
             .then(comments => setComments(comments))
     }, [])
 
@@ -44,16 +44,18 @@ export default function CommentSection({ teamId }) {
         setShowCreateForm(false)
 
         postComment({ ...createFormData, teamId: teamId})
-            .them(() => refreshComments())
+            .then(() => refreshComments())
     }
 
     let commentElements = [<p key='0' className="">Posted Comments Will Appear Here</p>]
     if (comments.length > 0) {
-        return <Comment 
-            key={comment._id}
-            data={comment}
-            refreshComments={refreshComments}
-        />
+        commentElements = comments.map(comment => {
+            return <Comment 
+                key={comment._id}
+                data={comment}
+                refreshComments={refreshComments}
+            />
+        })
     }
 
     let buttonText = 'Create'

@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import TeamCard from '../TeamCard'
 import './styles.css'
 
-export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, setWildCardStatus, updateDetails }) {
+export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, setWildCardStatus, updateTeamDetails, updateTeamSchedule, updateTeamRoster }) {
 
     const atlanticTeams = []
     const metroTeams = []
@@ -32,10 +32,42 @@ export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, s
             }
         }
         
-        atlanticGallery = atlanticTeams.map(team => <TeamCard key={team.teamAbbrev.default} team={team} updateDetails={updateDetails}/>)
-        metroGallery = metroTeams.map(team => <TeamCard key={team.teamAbbrev.default} team={team} updateDetails={updateDetails}/>)
-        centralGallery = centralTeams.map(team => <TeamCard key={team.teamAbbrev.default} team={team} updateDetails={updateDetails}/>)
-        pacificGallery = pacificTeams.map(team => <TeamCard key={team.teamAbbrev.default} team={team} updateDetails={updateDetails}/>)
+        atlanticGallery = atlanticTeams.map(team => 
+        <TeamCard 
+            key={team.teamAbbrev.default} 
+            team={team} 
+            updateTeamDetails={updateTeamDetails} 
+            updateTeamSchedule={updateTeamSchedule} 
+            updateTeamRoster={updateTeamRoster}
+            setPlayerInfo={setPlayerInfo}
+        />)
+        metroGallery = metroTeams.map(team => 
+        <TeamCard 
+            key={team.teamAbbrev.default}
+            team={team} 
+            updateTeamDetails={updateTeamDetails}
+            updateTeamSchedule={updateTeamSchedule} 
+            updateTeamRoster={updateTeamRoster}
+            setPlayerInfo={setPlayerInfo}
+            />)
+        centralGallery = centralTeams.map(team => 
+        <TeamCard 
+            key={team.teamAbbrev.default} 
+            team={team} 
+            updateTeamDetails={updateTeamDetails}
+            updateTeamSchedule={updateTeamSchedule} 
+            updateTeamRoster={updateTeamRoster}
+            setPlayerInfo={setPlayerInfo}
+        />)
+        pacificGallery = pacificTeams.map(team => 
+        <TeamCard 
+            key={team.teamAbbrev.default} 
+            team={team} 
+            updateTeamDetails={updateTeamDetails}
+            updateTeamSchedule={updateTeamSchedule} 
+            updateTeamRoster={updateTeamRoster}
+            setPlayerInfo={setPlayerInfo}
+        />)
     }
 
     return (

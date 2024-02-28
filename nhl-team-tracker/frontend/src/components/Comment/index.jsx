@@ -48,19 +48,37 @@ export default function Comment({ data, refreshComments }) {
                     onChange={handleInputChange}
                 />
                 <div>
-                    <button>
-
+                    <button
+                        onClick={() => { setShowEditForm(false) }}
+                        className="button">
+                        Close
                     </button>
-                    <button>
-                        
+                    <button
+                        type="submit"
+                        className="button">
+                        Post
                     </button>
                 </div>
             </form>
         )
     } else {
         return (
-            <div>
-
+            <div
+                className="">
+                <p className="">{data.name}</p>
+                <p className="">{data.content}</p>
+                <div className="">
+                    <button
+                        onClick={() => { setShowEditForm(true) }}
+                        className="button is-warning">
+                        Edit
+                    </button>
+                    <button
+                        onClick={handleDelete}
+                        className="button is-danger">
+                        Delete
+                    </button>
+                </div>
             </div>
         )
     }
