@@ -3,7 +3,7 @@ import { Routes, Route, Link } from 'react-router-dom'
 import HomePage from '../HomePage'
 import TeamsPage from '../TeamsPage'
 import TeamDetails from '../TeamDetails'
-import PlayerInfo from '../PlayerInfo'
+import SkaterStats from '../SkaterStats'
 import './styles.css'
 
 export default function App() {
@@ -12,7 +12,6 @@ export default function App() {
   const [teamDetailsData, setTeamDetailsData] = useState([])
   const [teamSchedule, setTeamSchedule] = useState([])
   const [teamRoster, setTeamRoster] = useState([])
-  const [playerInfo, setPlayerInfo] = useState([])
 
 
   async function getData (url) {
@@ -27,7 +26,6 @@ export default function App() {
     getData('https://api-web.nhle.com/v1/standings/now')
     
   }, [])
-
 
   return (
     <>
@@ -45,9 +43,9 @@ export default function App() {
       </nav>
         <Routes> 
           <Route path="/" element={
-            teams? <HomePage
+            <HomePage
             
-            /> : null}
+            />}
           />
 
           <Route path='/teams' element={
@@ -67,12 +65,9 @@ export default function App() {
               team={teamDetailsData}
               schedule={teamSchedule}
               roster={teamRoster}
-              setPlayerInfo={setPlayerInfo}
             />}
           />
-          <Route path='/teams/:teamCode/:id' element={
-            <PlayerInfo playerInfo={playerInfo} />
-          }/>
+          <Route path='/teams/:teamCode/:id' element={<SkaterStats />}/>
         </Routes>
       </>
   )

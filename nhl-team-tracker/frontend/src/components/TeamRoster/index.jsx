@@ -1,4 +1,3 @@
-import { useEffect } from 'react'
 import { Link } from 'react-router-dom'
 import './styles.css'
 
@@ -20,8 +19,8 @@ export default function TeamRoster ({ roster, team }) {
         const array = []
         for (let i = 0; i < arr.length; i++) {
             array.push(
-                <Link 
-                    to={`/teams/${team.teamAbbrev.default}/${arr[i].id}`}
+                <Link to={`/teams/${team.teamAbbrev.default}/${arr[i].id}`}
+                key={[i]}
                 >
                     <div className="is-flex">
                         <div>

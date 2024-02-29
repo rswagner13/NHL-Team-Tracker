@@ -39,7 +39,6 @@ export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, s
             updateTeamDetails={updateTeamDetails} 
             updateTeamSchedule={updateTeamSchedule} 
             updateTeamRoster={updateTeamRoster}
-            setPlayerInfo={setPlayerInfo}
         />)
         metroGallery = metroTeams.map(team => 
         <TeamCard 
@@ -48,7 +47,6 @@ export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, s
             updateTeamDetails={updateTeamDetails}
             updateTeamSchedule={updateTeamSchedule} 
             updateTeamRoster={updateTeamRoster}
-            setPlayerInfo={setPlayerInfo}
             />)
         centralGallery = centralTeams.map(team => 
         <TeamCard 
@@ -57,7 +55,6 @@ export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, s
             updateTeamDetails={updateTeamDetails}
             updateTeamSchedule={updateTeamSchedule} 
             updateTeamRoster={updateTeamRoster}
-            setPlayerInfo={setPlayerInfo}
         />)
         pacificGallery = pacificTeams.map(team => 
         <TeamCard 
@@ -66,7 +63,6 @@ export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, s
             updateTeamDetails={updateTeamDetails}
             updateTeamSchedule={updateTeamSchedule} 
             updateTeamRoster={updateTeamRoster}
-            setPlayerInfo={setPlayerInfo}
         />)
     }
 

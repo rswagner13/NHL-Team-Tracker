@@ -1,12 +1,11 @@
 
 export default function TeamSchedule ({ schedule }) {
 
-
     function printSchedule(games) {
         const gameArray = []
         for (let i = 0; i < games.length; i++) {
             gameArray.push(
-            <div className="schedule-details">
+            <div className="schedule-details" key={[i]}>
                 <p>{games[i].gameDate}</p>
                 <p>{games[i].gameState}</p>
                 <div className="is-flex">
@@ -24,7 +23,8 @@ export default function TeamSchedule ({ schedule }) {
                     </div>
                 </div>
                 
-            </div>)
+            </div>
+            )
         }
 
         return gameArray
