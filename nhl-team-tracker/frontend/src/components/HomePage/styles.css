@@ -1,7 +1,35 @@
 .image-carousel {
-    height: 60vh !important;
-    width: 70vw !important;
-    border: 2px solid black;
-    justify-content: center;
-    margin: auto;
+    height: 100vh !important;
+    width: 100vw !important;
+    display: flex !important;
+    justify-content: center !important;
+}
+
+.slider {
+    width: 800px;
+    height: 550px;
+    position: relative;
+    box-shadow: 0 5px 30px 10px rgba(0,0,0,0.2);
+    overflow: hidden;
+}
+
+.slide {
+    height: 550px;
+    display: flex;
+    align-items: center;
+    animation: slideshow 100s linear infinite;
+}
+
+.slide img {
+    height: 550px;
+    padding: 0 30px 0 30px;
+}
+
+@keyframes slideshow {
+    0% {
+        transform: translatex(100%)
+    }
+    100% {
+        transform: translatex(-3200%)
+    }
 }

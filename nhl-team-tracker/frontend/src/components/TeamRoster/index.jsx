@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom'
 import './styles.css'
 
-export default function TeamRoster ({ roster, team }) {
+export default function TeamRoster({ roster, team }) {
 
     const playerArray = []
 
@@ -15,7 +15,7 @@ export default function TeamRoster ({ roster, team }) {
         playerArray.push(roster.goalies[k])
     }
 
-    function printPlayer (arr) {
+    function printPlayer(arr) {
         const array = []
         for (let i = 0; i < arr.length; i++) {
             array.push(

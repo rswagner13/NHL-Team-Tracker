@@ -10,9 +10,11 @@
 
 .schedule-container {
     overflow: scroll !important;
+    overflow-x: hidden !important;
     height: 50vh;
 }
 .roster-container {
     overflow: scroll !important;
+    overflow-x: hidden !important;
     height: 50vh;
 }

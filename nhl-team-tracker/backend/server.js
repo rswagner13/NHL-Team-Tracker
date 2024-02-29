@@ -14,6 +14,7 @@ const db = require('./models');
 /* Require the routes in the controllers folder
 --------------------------------------------------------------- */
 const commentsCtrl = require('./controllers/comments')
+const usersCtrl = require('./controllers/users')
 
 
 /* Create the Express app
@@ -36,6 +37,9 @@ app.use(express.json())
 // to handle all routes that begin with `localhost:3000/api/comments`
 app.use('/api/comments', commentsCtrl)
 
+// This tells our app to look at the `controllers/users.js` file 
+// to handle all routes that begin with `localhost:3000/api/users`
+app.use('/api/users', usersCtrl)
 
 /* Tell the app to listen on the specified port
 ---------------------------------------------------------- */
