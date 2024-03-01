@@ -5,3 +5,6 @@
 nav {
   height: 12vh !important;
 }
+button {
+  background-color: grey !important;
+}

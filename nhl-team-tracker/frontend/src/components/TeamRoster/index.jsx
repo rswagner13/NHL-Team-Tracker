@@ -37,10 +37,8 @@ export default function TeamRoster({ roster, team }) {
     }
 
     return (
-        <> 
             <div className="defense-container">
-                    {printPlayer(playerArray)}
+                {printPlayer(playerArray)}
             </div>
-        </>
     )
 }

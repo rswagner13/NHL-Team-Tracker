@@ -17,7 +17,7 @@
     height: 550px;
     display: flex;
     align-items: center;
-    animation: slideshow 100s linear infinite;
+    animation: slideshow 200s linear infinite;
 }
 
 .slide img {

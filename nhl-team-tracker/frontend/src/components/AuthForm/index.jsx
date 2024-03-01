@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { signUp, logIn } from '../../../utils/backend'
+import './styles.css'
 
 export default function AuthForm({ setLoginStatus }) {
     const { formType } = useParams()
@@ -36,8 +37,8 @@ export default function AuthForm({ setLoginStatus }) {
 
     return (
         <div className="is-flex">
-            <div>
-                <h1>{actionText}</h1>
+            <div className="container">
+                <h1 className="is-size-2 mb-3 mt-3">{actionText}</h1>
                 <form onSubmit={handleSubmit}>
                     <div>
                         <label className="is-block" htmlFor="email">

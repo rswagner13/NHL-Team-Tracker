@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom'
 import CommentSection  from '../CommentSection'
 import TeamSchedule from '../TeamSchedule'
 import TeamRoster from '../TeamRoster'
+import TeamStats from '../TeamStats'
 import './styles.css'
 
 export default function TeamDetails(props) {
@@ -47,7 +48,9 @@ export default function TeamDetails(props) {
                         
                         <div className="team-info column is-one-third">
                             <h1 className="is-size-3">Team Stats</h1>
-                            
+                            <div className="team-stat-container">
+                                <TeamStats key={team.teamAbbrev.default} team={team}/>
+                            </div>
                         </div>
                         <div className="team-schedule column is-one-third">
                             <h1 className="is-size-3">Team Schedule</h1>
@@ -71,7 +74,11 @@ export default function TeamDetails(props) {
         )
     } else {
         return (
-            <p>Loading, please wait...</p>
+            <div>
+                <p className="is-size-2">Loading, please wait...</p>
+                <img src="../public/puck-drop.gif" />
+            </div>
+            
         )
     }
 }

@@ -47,6 +47,8 @@ export default function Comment({ data, refreshComments }) {
                     value={editFormData.content}
                     onChange={handleInputChange}
                 />
+                {console.log(data)}
+                {console.log(localStorage)}
                 <div>
                     <button
                         onClick={() => { setShowEditForm(false) }}

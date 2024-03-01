@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import './styles.css'
 
 export default function TeamCard({ team, updateTeamDetails, updateTeamSchedule, updateTeamRoster }) {
     const [schedule, setSchedule] = useState()
@@ -40,10 +41,10 @@ export default function TeamCard({ team, updateTeamDetails, updateTeamSchedule, 
                     to={'/teams/' + team.teamAbbrev.default} 
                     onClick={() => updateTeamInfo}>
                     <div className="team-container column is-flex">
-                        <div className="team-logo image is-128x128">
+                        <div className="team-logo image is-flex is-128x128">
                             <img src={team.teamLogo}/>
                         </div>
-                        <table className="table is-full-width">
+                        <table className="table is-centered is-full-width">
                             <thead>
                                 <tr>
                                     <th><abbr title="Team Name">Name</abbr></th>

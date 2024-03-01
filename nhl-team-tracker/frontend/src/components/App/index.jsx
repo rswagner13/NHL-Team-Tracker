@@ -15,6 +15,7 @@ export default function App() {
   const [teamRoster, setTeamRoster] = useState([])
   const [teamLogos, setTeamLogos] = useState([])
   const [loginStatus, setLoginStatus] = useState(false)
+  const [isActive, setIsActive] = useState(false)
 
   function getTeamLogos(teamStandings) {
     const logoArray= []
@@ -40,33 +41,37 @@ export default function App() {
   }, [])
 
 
-  let authLink = <div className="navbar-end">
-      <div className="navbar-item">
-        <div className="is-flex">
-          <Link to="/auth/signup">
-            <h1>Sign Up</h1>
-          </Link>
-          <Link to="/auth/login">
-            <h1>Log In</h1>
-          </Link>
-        </div>
-      </div>
+  let authLink = <div id="navbarBasicExample"
+    className={`navbar-menu ${isActive ? "is-active" : ""}`}>
+    <div className="navbar-end">
+      <a href="/auth/signup" className="navbar-item">
+        Sign Up
+      </a>
+      <a href="/auth/login" className="navbar-item">
+        Log In
+      </a>
+      <a href="/teams" className="navbar-item">
+        Teams
+      </a>
     </div>
+  </div>
 
     if (loginStatus) {
-      authLink = <div className="navbar-end">
-      <div className="navbar-item">
-        <div className="is-flex">
-          <button 
-            className=""
+      authLink =  <div id="navbarBasicExample"
+        className={`navbar-menu ${isActive ? "is-active" : ""}`}>
+      <div className="navbar-end">
+        <a href="/teams" className="navbar-item">
+          Teams
+        </a>
+          <a 
+            className="log-out navbar-item"
             onClick={() => {
               localStorage.clear()
               setLoginStatus(false)
             }}
           >
             Log Out
-          </button>
-        </div>
+          </a>
       </div>
     </div>
     }
@@ -79,14 +84,23 @@ export default function App() {
             <h1 className="is-size-3">NHL Team Tracker</h1>
           </a>
         </div>
-        {authLink}
         <div>
-          <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
+          <a 
+            onClick={() => {
+              setIsActive(!isActive)
+            }}
+            role="button" 
+            className={`navbar-burger burger ${isActive ? "is-active" : ""}`} 
+            aria-label="menu" 
+            aria-expanded="false"
+            data-target="navbarBasicExample"
+          >
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
           </a>
         </div>
+        {authLink}
       </nav>
         <Routes> 
           <Route path="/" element={
