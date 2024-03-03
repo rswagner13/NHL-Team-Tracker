@@ -16,6 +16,7 @@ export default function App() {
   const [teamLogos, setTeamLogos] = useState([])
   const [loginStatus, setLoginStatus] = useState(false)
   const [isActive, setIsActive] = useState(false)
+  const [pageName, setPageName] = useState(' ')
 
   function getTeamLogos(teamStandings) {
     const logoArray= []
@@ -81,8 +82,11 @@ export default function App() {
       <nav className="navbar is-dark" role="navigation" aria-label="main_navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
-            <h1 className="is-size-3">NHL Team Tracker</h1>
+            <h1 className="is-size-2">NHL Team Tracker</h1>
           </a>
+        </div>
+        <div className="page-title is-flex is-align-items-center is-justify-content-center">
+          <h1 className="is-size-2 has-text-white">{pageName}</h1>
         </div>
         <div>
           <a 
@@ -106,19 +110,20 @@ export default function App() {
           <Route path="/" element={
             <HomePage
               teamLogos={teamLogos}
+              setPageName={setPageName}
             />}
           />
 
           <Route path='/teams' element={
             teams? <TeamsPage
               teams={teams}
-              setTeams={setTeams}
               refreshQueue={getData}
               updateTeamDetails={setTeamDetailsData}
               updateTeamSchedule={setTeamSchedule}
               updateTeamRoster={setTeamRoster}
               isWildCard={isWildCard}
               setWildCardStatus={setWildCardStatus}
+              setPageName={setPageName}
             /> : null}
           />
           <Route path='/teams/:teamCode' element={
@@ -129,7 +134,11 @@ export default function App() {
             />}
           />
           <Route path='/teams/:teamCode/:id' element={<SkaterStats />}/>
-          <Route path='/auth/:formType' element={<AuthForm setLoginStatus={setLoginStatus} />}/>
+          <Route path='/auth/:formType' element={
+            <AuthForm 
+            setLoginStatus={setLoginStatus}
+            />}
+          />
         </Routes>
       </>
   )

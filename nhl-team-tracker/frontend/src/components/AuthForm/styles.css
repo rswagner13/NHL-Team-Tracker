@@ -1,0 +1,10 @@
+.form-background-image > img {
+    display: inline-block;
+    position: absolute;
+    right: 50% !important;
+    left: 42% !important;
+    z-index: -1 !important;
+    opacity: 0.5 !important;
+    scale: 3;
+    margin-top: 40vh;
+}

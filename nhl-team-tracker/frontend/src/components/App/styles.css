@@ -8,3 +8,7 @@ nav {
 button {
   background-color: grey !important;
 }
+
+.page-title {
+  width: 100% !important;
+}

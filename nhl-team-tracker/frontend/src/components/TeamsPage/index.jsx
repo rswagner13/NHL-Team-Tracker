@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import TeamCard from '../TeamCard'
 import './styles.css'
 
-export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, setWildCardStatus, updateTeamDetails, updateTeamSchedule, updateTeamRoster }) {
+export default function TeamsPage({ teams, refreshQueue, isWildCard, setWildCardStatus, updateTeamDetails, updateTeamSchedule, updateTeamRoster, setPageName }) {
 
     const atlanticTeams = []
     const metroTeams = []
@@ -11,6 +11,7 @@ export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, s
 
     useEffect(() => {
 
+        setPageName('Teams')
         refreshQueue('https://api-web.nhle.com/v1/standings/now')
     }, [])
 
@@ -68,21 +69,20 @@ export default function TeamsPage({ teams, setTeams, refreshQueue, isWildCard, s
 
     return (
         <>
-            <h1 className="is-size-1">Teams Page</h1>
-            <div className="container is-fluid columns">
+            <div className="container columns is-fluid">
                 <div className="eastern-conference conference-container column is-half">
-                    <h1 className="is-size-2 conference-name">Eastern Conference</h1>
-                    <h1 className="is-size-4">Atlantic Division</h1>
+                    <h1 className="is-size-2 conference-name is-uppercase has-text-black-ter">Eastern Conference</h1>
+                    <h1 className="is-size-4 is-uppercase has-text-black-ter">Atlantic Division</h1>
                     {atlanticGallery}
-                    <h1 className="is-size-4">Metropolitan Division</h1>
+                    <h1 className="is-size-4 is-uppercase has-text-black-ter">Metropolitan Division</h1>
                     {metroGallery}
 
                 </div>
                 <div className="eastern-conference conference-container column is-half">
-                    <h1 className="is-size-2 conference-name">Western Conference</h1>
-                    <h1 className="is-size-4">Central Division</h1>
+                    <h1 className="is-size-2 conference-name is-uppercase has-text-black-ter">Western Conference</h1>
+                    <h1 className="is-size-4 is-uppercase has-text-black-ter">Central Division</h1>
                     {centralGallery}
-                    <h1 className="is-size-4">Pacific Division</h1>
+                    <h1 className="is-size-4 is-uppercase has-text-black-ter">Pacific Division</h1>
                     {pacificGallery}
                 </div>
             </div>

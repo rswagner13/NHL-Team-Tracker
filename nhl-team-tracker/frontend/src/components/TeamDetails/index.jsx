@@ -33,7 +33,7 @@ export default function TeamDetails(props) {
 
                 setTeam(teamInfo)
                 setSchedule(games)
-                setRoster(playerRoster)          
+                setRoster(playerRoster) 
             }
             getTeamInfo()
         }

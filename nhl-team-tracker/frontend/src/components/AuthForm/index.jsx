@@ -33,19 +33,25 @@ export default function AuthForm({ setLoginStatus }) {
     }
 
     let actionText
-    formType === 'login' ? actionText = 'Log In' : actionText = 'Sign Up'
+    if(formType === 'login') {
+        actionText = 'Log In'
+    } else { 
+        actionText = 'Sign Up'
+    }
 
     return (
-        <div className="is-flex">
-            <div className="container">
+        <>
+            <div className="form-background-image">
+            <img src="../public/nhl-shield.png" />
+            <div className="is-widescreen mx-4">
                 <h1 className="is-size-2 mb-3 mt-3">{actionText}</h1>
                 <form onSubmit={handleSubmit}>
-                    <div>
-                        <label className="is-block" htmlFor="email">
+                    <div className="field">
+                        <label className="label is-block is-medium" htmlFor="email">
                             Email
                         </label>
                         <input
-                            className=""
+                            className="input is-medium"
                             id="email"
                             name="email"
                             type="email"
@@ -55,11 +61,12 @@ export default function AuthForm({ setLoginStatus }) {
                             onChange={handleInputChange}
                         />
                     </div>
-                    <div>
-                        <label className="is-block" htmlFor="password">
+                    <div className="field">
+                        <label className="label is-block is-medium" htmlFor="password">
                             Password
                         </label>
                         <input
+                            className="input is-medium"
                             id="password"
                             name="password"
                             type="password"
@@ -80,6 +87,7 @@ export default function AuthForm({ setLoginStatus }) {
                     </div>
                 </form>
             </div>
-        </div>
+            </div>
+        </>
     )
 }
