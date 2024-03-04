@@ -1,6 +1,12 @@
 .container {
     margin: 0 !important;
 }
+.teams-container {
+    height: 80vh;
+    margin-bottom: 5px !important;
+    overflow: scroll !important;
+    overflow-x: hidden !important;
+}
 .team-container {
     border: 2px solid black;
     margin: 5px;

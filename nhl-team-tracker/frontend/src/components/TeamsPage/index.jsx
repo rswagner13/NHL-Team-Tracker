@@ -69,7 +69,7 @@ export default function TeamsPage({ teams, refreshQueue, isWildCard, setWildCard
 
     return (
         <>
-            <div className="container columns is-fluid">
+            <div className="container columns is-fluid teams-container">
                 <div className="eastern-conference conference-container column is-half">
                     <h1 className="is-size-2 conference-name is-uppercase has-text-black-ter">Eastern Conference</h1>
                     <h1 className="is-size-4 is-uppercase has-text-black-ter">Atlantic Division</h1>

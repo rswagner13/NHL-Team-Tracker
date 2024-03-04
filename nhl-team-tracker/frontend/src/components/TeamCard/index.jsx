@@ -66,6 +66,13 @@ export default function TeamCard({ team, updateTeamDetails, updateTeamSchedule, 
                 </Link>
             </>
         )
+    } else {
+        return(
+            <>
+                <p className="is-size-2">Loading, please wait...</p>
+                <img src="/puck-drop.gif" />
+            </>
+        )
     }
     
 }

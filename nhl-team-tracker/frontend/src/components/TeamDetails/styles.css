@@ -3,11 +3,9 @@
     position: absolute !important;
     z-index: -1 !important;
     opacity: 0.5 !important;
-    scale: 1.25;
+    scale: 1;
     text-align: center !important;
-    margin-top: 10vh;
 }
-
 .schedule-container {
     overflow: scroll !important;
     overflow-x: hidden !important;

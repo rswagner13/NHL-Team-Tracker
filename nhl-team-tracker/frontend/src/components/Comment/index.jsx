@@ -42,7 +42,6 @@ export default function Comment({ data, refreshComments }) {
                 <br />
                 <textarea 
                     name="content"
-                    className=""
                     placeholder="Type your comment here"
                     value={editFormData.content}
                     onChange={handleInputChange}
@@ -65,19 +64,20 @@ export default function Comment({ data, refreshComments }) {
         )
     } else {
         return (
-            <div
-                className="">
-                <p className="">{data.name}</p>
-                <p className="">{data.content}</p>
-                <div className="">
+            <div className="user-comment-container mt-2">
+                <div className="user-comment-details mb-2">
+                    <p className="has-text-black">{data.name}</p>
+                    <p className="has-text-black">{data.content}</p>
+                </div>
+                <div>
                     <button
                         onClick={() => { setShowEditForm(true) }}
-                        className="button is-warning">
+                        className="button has-text-white mr-2">
                         Edit
                     </button>
                     <button
                         onClick={handleDelete}
-                        className="button is-danger">
+                        className="button has-text-white ml-2">
                         Delete
                     </button>
                 </div>

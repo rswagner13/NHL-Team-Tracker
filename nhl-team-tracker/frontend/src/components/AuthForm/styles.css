@@ -8,3 +8,6 @@
     scale: 3;
     margin-top: 40vh;
 }
+.input {
+    width: 80% !important;
+}

@@ -47,7 +47,7 @@ export default function CommentSection({ teamId }) {
             .then(() => refreshComments())
     }
 
-    let commentElements = [<p key='0' className="">Posted Comments Will Appear Here</p>]
+    let commentElements = [<p key='0' className="">No Comments Made</p>]
     if (comments.length > 0) {
         commentElements = comments.map(comment => {
             return <Comment 
@@ -58,7 +58,7 @@ export default function CommentSection({ teamId }) {
         })
     }
 
-    let buttonText = 'Create'
+    let buttonText = 'Add a new comment'
     if (showCreateForm) {
         buttonText = 'Close'
     }
@@ -66,10 +66,10 @@ export default function CommentSection({ teamId }) {
     return (
         <>
             <div className="comment-section">
-                <h1 className="is-size-1">Comment Section</h1>
+                <h1 className="comment-section-title mb-2 is-size-1">Comment Section</h1>
                 <button 
                     onClick={toggleCreateForm}
-                    className="button is-primary">
+                    className="button is-primary mb-2">
                     {buttonText}
                 </button>
                 {
@@ -78,7 +78,7 @@ export default function CommentSection({ teamId }) {
                         className="">
                         <input 
                             name="name"
-                            className="input is-primary is-normal"
+                            className="input is-primary is-normal mb-4"
                             placeholder="Your name"
                             value={createFormData.name}
                             onChange={handleInputChange}
@@ -86,7 +86,7 @@ export default function CommentSection({ teamId }) {
                         <br />
                         <textarea 
                             name="content"
-                            className="textarea is-medium"
+                            className="textarea is-normal mb-4"
                             placeholder="Type your comment here"
                             value={createFormData.content}
                             onChange={handleInputChange}

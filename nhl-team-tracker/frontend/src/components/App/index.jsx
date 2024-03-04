@@ -45,13 +45,13 @@ export default function App() {
   let authLink = <div id="navbarBasicExample"
     className={`navbar-menu ${isActive ? "is-active" : ""}`}>
     <div className="navbar-end">
-      <a href="/auth/signup" className="navbar-item">
+      <a href="/auth/signup" className="navbar-item has-text-white">
         Sign Up
       </a>
-      <a href="/auth/login" className="navbar-item">
+      <a href="/auth/login" className="navbar-item has-text-white">
         Log In
       </a>
-      <a href="/teams" className="navbar-item">
+      <a href="/teams" className="navbar-item has-text-white">
         Teams
       </a>
     </div>
@@ -61,11 +61,11 @@ export default function App() {
       authLink =  <div id="navbarBasicExample"
         className={`navbar-menu ${isActive ? "is-active" : ""}`}>
       <div className="navbar-end">
-        <a href="/teams" className="navbar-item">
+        <a href="/teams" className="navbar-item has-text-white">
           Teams
         </a>
           <a 
-            className="log-out navbar-item"
+            className="log-out navbar-item has-text-white"
             onClick={() => {
               localStorage.clear()
               setLoginStatus(false)
@@ -131,15 +131,20 @@ export default function App() {
               team={teamDetailsData}
               schedule={teamSchedule}
               roster={teamRoster}
+              setPageName={setPageName}
             />}
           />
-          <Route path='/teams/:teamCode/:id' element={<SkaterStats />}/>
+          <Route path='/teams/:teamCode/:id' element={
+            <SkaterStats
+              setPageName={setPageName}
+            />}
+          />
           <Route path='/auth/:formType' element={
             <AuthForm 
             setLoginStatus={setLoginStatus}
             />}
           />
         </Routes>
-      </>
+    </>
   )
 }

@@ -10,6 +10,7 @@ export default function TeamDetails(props) {
     const [team, setTeam] = useState({ ...props.team })
     const [schedule, setSchedule] = useState({ ...props.schedule})
     const [roster, setRoster]  = useState({ ...props.roster })
+    const [teamPageName, setTeamPageName] = useState({ ...props.setPageName(team.teamName?.default)})
     const params = useParams()
 
     const teamRes = fetch('https://api-web.nhle.com/v1/standings/now')
@@ -33,7 +34,7 @@ export default function TeamDetails(props) {
 
                 setTeam(teamInfo)
                 setSchedule(games)
-                setRoster(playerRoster) 
+                setRoster(playerRoster)
             }
             getTeamInfo()
         }
@@ -47,26 +48,25 @@ export default function TeamDetails(props) {
                     <div className="container is-fluid columns">
                         
                         <div className="team-info column is-one-third">
-                            <h1 className="is-size-3">Team Stats</h1>
+                            <h1 className="is-size-3 has-text-black">Team Stats</h1>
                             <div className="team-stat-container">
                                 <TeamStats key={team.teamAbbrev.default} team={team}/>
                             </div>
                         </div>
                         <div className="team-schedule column is-one-third">
-                            <h1 className="is-size-3">Team Schedule</h1>
+                            <h1 className="is-size-3 has-text-black">Team Schedule</h1>
                             <div className="schedule-container">
                                 <TeamSchedule key={team.teamAbbrev.default} schedule={schedule}/>
                             </div>
                         </div>
                         <div className="player-roster column is-one-third">
-                            <h1 className="is-size-3">Team Roster</h1>
+                            <h1 className="is-size-3 has-text-black">Team Roster</h1>
                             <div className="roster-container">
                                 <TeamRoster key={team.teamAbbrev.default} roster={roster} team={team}/>
                             </div>
                         </div>
                     </div>
                     <CommentSection teamId={team.teamAbbrev.default} />
-            
                 </div>
             
             </>
@@ -76,7 +76,7 @@ export default function TeamDetails(props) {
         return (
             <div>
                 <p className="is-size-2">Loading, please wait...</p>
-                <img src="../public/puck-drop.gif" />
+                <img src="/puck-drop.gif" />
             </div>
             
         )

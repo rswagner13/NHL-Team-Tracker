@@ -1,14 +1,16 @@
 #root {
-  margin: 0 auto;
   text-align: center;
+}
+html, body {
+  height: 100vh !important;
+  box-sizing: border-box !important;
 }
 nav {
   height: 12vh !important;
 }
 button {
-  background-color: grey !important;
+  background-color: rgb(70, 70, 70) !important;
 }
-
 .page-title {
   width: 100% !important;
 }

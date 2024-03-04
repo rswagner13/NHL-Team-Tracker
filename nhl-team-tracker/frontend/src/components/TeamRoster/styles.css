@@ -1,0 +1,7 @@
+.player-container {
+    border: 2px solid black;
+    text-align: center;
+    align-items: center !important;
+    padding: 2px;
+    margin: 2px;
+}
