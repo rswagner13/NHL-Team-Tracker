@@ -45,13 +45,13 @@ export default function App() {
   let authLink = <div id="navbarBasicExample"
     className={`navbar-menu ${isActive ? "is-active" : ""}`}>
     <div className="navbar-end">
-      <a href="/auth/signup" className="navbar-item has-text-white">
+      <a href="/auth/signup" className="navbar-item has-text-white is-size-5">
         Sign Up
       </a>
-      <a href="/auth/login" className="navbar-item has-text-white">
+      <a href="/auth/login" className="navbar-item has-text-white is-size-5">
         Log In
       </a>
-      <a href="/teams" className="navbar-item has-text-white">
+      <a href="/teams" className="navbar-item has-text-white is-size-5">
         Teams
       </a>
     </div>
@@ -61,11 +61,11 @@ export default function App() {
       authLink =  <div id="navbarBasicExample"
         className={`navbar-menu ${isActive ? "is-active" : ""}`}>
       <div className="navbar-end">
-        <a href="/teams" className="navbar-item has-text-white">
+        <a href="/teams" className="navbar-item has-text-white is-size-5">
           Teams
         </a>
           <a 
-            className="log-out navbar-item has-text-white"
+            className="log-out navbar-item has-text-white is-size-5"
             onClick={() => {
               localStorage.clear()
               setLoginStatus(false)
@@ -87,7 +87,7 @@ export default function App() {
           </a>
         </div>
         <div className="page-title is-flex is-align-items-center is-justify-content-center">
-          <h1 className="is-size-2 has-text-white">{pageName}</h1>
+          <h1 className="is-size-1 has-text-white page-name">{pageName}</h1>
         </div>
         <div>
           <a 

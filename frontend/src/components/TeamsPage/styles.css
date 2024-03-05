@@ -9,6 +9,7 @@
 }
 .team-container {
     border: 2px solid black;
+    border-radius: 10px !important;
     margin: 5px;
 }
 .table {

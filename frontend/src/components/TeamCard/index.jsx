@@ -39,26 +39,26 @@ export default function TeamCard({ team, updateTeamDetails, updateTeamSchedule, 
             <>
                 <Link 
                     to={'/teams/' + team.teamAbbrev.default} 
-                    onClick={() => updateTeamInfo}>
+                    onClick={() => updateTeamInfo}>     
                     <div className="team-container column is-flex">
                         <div className="team-logo image is-flex is-128x128">
                             <img src={team.teamLogo}/>
                         </div>
-                        <table className="table is-centered is-full-width">
+                        <table className="table is-bordered is-striped is-hoverable is-fullwidth">
                             <thead>
                                 <tr>
-                                    <th><abbr title="Team Name">Name</abbr></th>
-                                    <th><abbr title="Wins">W</abbr></th>
-                                    <th><abbr title="Losses">L</abbr></th>
-                                    <th><abbr title="Ties">T</abbr></th>
+                                    <th className="has-text-centered"><abbr title="Team Name">Name</abbr></th>
+                                    <th className="has-text-centered"><abbr title="Wins">W</abbr></th>
+                                    <th className="has-text-centered"><abbr title="Losses">L</abbr></th>
+                                    <th className="has-text-centered"><abbr title="Ties">T</abbr></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <th>{team.teamName.default}</th>
-                                    <td>{team.wins}</td>
-                                    <td>{team.losses}</td>
-                                    <td>{team.ties}</td>
+                                    <th className="has-text-centered">{team.teamName.default}</th>
+                                    <td className="has-text-centered">{team.wins}</td>
+                                    <td className="has-text-centered">{team.losses}</td>
+                                    <td className="has-text-centered">{team.ties}</td>
                                 </tr>
                             </tbody>
                         </table>

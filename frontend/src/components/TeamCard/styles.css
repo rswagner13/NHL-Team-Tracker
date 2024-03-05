@@ -4,3 +4,7 @@
 .table {
     margin: auto !important;
 }
+.team-container:hover {
+    background-color: rgba(118, 118, 118, 0.4);
+    box-shadow: 0 10px 20px 10px rgba(0,0,0,0.2);
+}

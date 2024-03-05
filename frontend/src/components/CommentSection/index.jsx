@@ -47,7 +47,7 @@ export default function CommentSection({ teamId }) {
             .then(() => refreshComments())
     }
 
-    let commentElements = [<p key='0' className="">No Comments Made</p>]
+    let commentElements = [<p key='0' className="is-size-5 has-text-black">No Comments Made</p>]
     if (comments.length > 0) {
         commentElements = comments.map(comment => {
             return <Comment 

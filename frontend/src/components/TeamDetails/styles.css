@@ -10,9 +10,11 @@
     overflow: scroll !important;
     overflow-x: hidden !important;
     height: 50vh;
+    border-bottom: 2px solid black
 }
 .roster-container {
     overflow: scroll !important;
     overflow-x: hidden !important;
     height: 50vh;
+    border-bottom: 2px solid black;
 }

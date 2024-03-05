@@ -9,6 +9,7 @@
     position: relative;
     box-shadow: 0 5px 30px 10px rgba(0,0,0,0.2);
     overflow: hidden;
+    border-radius: 10px !important;
 }
 .slide {
     height: 550px;

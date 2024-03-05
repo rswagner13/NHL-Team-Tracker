@@ -1,0 +1,9 @@
+.player-info-container {
+    height: 100vh !important;
+    overflow: scroll !important;
+    overflow-x: hidden !important;
+}
+.career-stats {
+    height: 500px !important;
+    overflow: scroll !important;
+}
