@@ -11,10 +11,9 @@ const express = require('express')
 // Router allows us to handle routing outside of server.js
 const router = express.Router()
 
-
 /* Require the db connection, and models
 ---------------------------------------------------------- */
-const db = require('../models/index.js')
+const db = require('../models')
 
 
 /* Require JWT config
@@ -87,6 +86,7 @@ router.delete('/:id', authMiddleware, async (req, res) => {
     const userComment = await db.Comment.findById(req.params.id)
     if (userComment.userId == req.user.id) {
         const deleteComment = await db.Comment.findByIdAndDelete(req.params.id)
+        res.send('You deleted this comment ' + deleteComment._id)
     } else {
         res.status(401)
             .json({ message: 'Invalid user or token' })

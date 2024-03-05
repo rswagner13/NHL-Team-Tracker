@@ -13,13 +13,12 @@ const router = express.Router()
 
 /* Require the db connection and models
 --------------------------------------------------------------- */
-const db = require('../models/index.js')
+const db = require('../models')
 
 
 /* Require the JWT config
 --------------------------------------------------------------- */
 const config = require('../../jwt.config.js')
-const { prependOnceListener } = require('../models/comment.js')
 
 
 /* ROUTES

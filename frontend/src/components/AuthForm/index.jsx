@@ -42,7 +42,7 @@ export default function AuthForm({ setLoginStatus }) {
     return (
         <>
             <div className="form-background-image">
-            <img src="../public/nhl-shield.png" />
+            <img src="/nhl-shield.png" />
             <div className="is-widescreen mx-4">
                 <h1 className="is-size-2 mb-3 mt-3">{actionText}</h1>
                 <form onSubmit={handleSubmit}>
