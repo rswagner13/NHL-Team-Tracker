@@ -1,0 +1,12 @@
+.user-comment-container {
+    border: 2px solid black;
+    width: 75%;
+    padding-bottom: 10px;
+    margin: auto;
+}
+.username {
+    font-size: 34px !important;
+}
+.comment-message {
+    font-size: 28px !important;
+}

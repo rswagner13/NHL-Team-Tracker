@@ -70,6 +70,7 @@ export default function App() {
               localStorage.clear()
               setLoginStatus(false)
             }}
+            href="/"
           >
             Log Out
           </a>

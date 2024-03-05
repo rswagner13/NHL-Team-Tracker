@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { updateComment, deleteComment} from '../../../utils/backend'
+import './styles.css'
 
 export default function Comment({ data, refreshComments }) {
     const [showEditForm, setShowEditForm] = useState(false)
@@ -34,7 +35,7 @@ export default function Comment({ data, refreshComments }) {
                 className="">
                 <input 
                     name="name"
-                    className=""
+                    className="input is-primary is-normal mb-4"
                     placeholder="Your name"
                     value={editFormData.name}
                     onChange={handleInputChange}
@@ -42,21 +43,20 @@ export default function Comment({ data, refreshComments }) {
                 <br />
                 <textarea 
                     name="content"
+                    className="textarea is-normal mb-4"
                     placeholder="Type your comment here"
                     value={editFormData.content}
                     onChange={handleInputChange}
                 />
-                {console.log(data)}
-                {console.log(localStorage)}
                 <div>
                     <button
                         onClick={() => { setShowEditForm(false) }}
-                        className="button">
+                        className="button has-text-white">
                         Close
                     </button>
                     <button
                         type="submit"
-                        className="button">
+                        className="button has-text-white">
                         Post
                     </button>
                 </div>
@@ -66,8 +66,8 @@ export default function Comment({ data, refreshComments }) {
         return (
             <div className="user-comment-container mt-2">
                 <div className="user-comment-details mb-2">
-                    <p className="has-text-black">{data.name}</p>
-                    <p className="has-text-black">{data.content}</p>
+                    <p className="username has-text-black">{data.name}</p>
+                    <p className="comment-message has-text-black">{data.content}</p>
                 </div>
                 <div>
                     <button

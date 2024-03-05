@@ -66,7 +66,7 @@ export default function CommentSection({ teamId }) {
     return (
         <>
             <div className="comment-section">
-                <h1 className="comment-section-title mb-2 is-size-1">Comment Section</h1>
+                <h1 className="comment-section-title mb-2 is-size-1 has-text-black">Comment Section</h1>
                 <button 
                     onClick={toggleCreateForm}
                     className="button is-primary mb-2">
