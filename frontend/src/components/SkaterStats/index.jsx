@@ -20,17 +20,16 @@ export default function SkaterStats ({ setPageName }) {
         }
     }
 
-    function inchesToFeet(inches) {
-        const feet = inches / 12
-        const inchesLeft = inches % 12
-        return `${Math.trunc(feet)} foot ${inchesLeft} inches`
-    }
-
     async function getPlayerInfo () {
         const res = await fetch(`https://api-web.nhle.com/v1/player/${params.id}/landing`)
         const data = await res.json()
         setPlayerStats(data)
     }
+
+    function convertPercentage(percentage) {
+        return (Math.round(percentage * 100)).toFixed(2)
+    }
+
         useEffect(() => {
             setPlayerName()
             getPlayerInfo()
@@ -38,44 +37,72 @@ export default function SkaterStats ({ setPageName }) {
 
     if (playerStats.playerId) {
         return (
-            <div className="player-info-container">
-                <div>
-                    <img src={playerStats.heroImage} />
-                    <h1 className="is-size-2 has-text-black">Player Stats</h1>
+            <>
+                <div className="player-info-container">
+                    <div>
+                        <img src={playerStats.heroImage} />
+                    </div>
+                    <div>
+                        <h1 className="is-size-2 has-text-black mb-2">Current Season Stats</h1>
+                    </div>
+                    <div className="current-stats mb-2">
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th className="has-text-centered">Player Position</th>
+                                    <th className="has-text-centered">Jersey Number</th>
+                                    <th className="has-text-centered">Games Played</th>
+                                    <th className="has-text-centered">Goals</th>
+                                    <th className="has-text-centered">Assists</th>
+                                    <th className="has-text-centered">Shots</th>
+                                    <th className="has-text-centered">Shooting Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th className="has-text-centered">{playerPosition(playerStats.position)}</th>
+                                    <th className="has-text-centered">#{playerStats.sweaterNumber}</th>
+                                    <th className="has-text-centered">{playerStats.featuredStats.regularSeason.subSeason.gamesPlayed}</th>
+                                    <th className="has-text-centered">{playerStats.featuredStats.regularSeason.subSeason.goals}</th>
+                                    <th className="has-text-centered">{playerStats.featuredStats.regularSeason.subSeason.assists}</th>
+                                    <th className="has-text-centered">{playerStats.featuredStats.regularSeason.subSeason.shots}</th>
+                                    <th className="has-text-centered">{convertPercentage(playerStats.featuredStats.regularSeason.subSeason.shootingPctg)}%</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div>
+                        <h1 className="is-size-2 has-text-black mb-2">Previous 5 Games</h1>
+                    </div>
+                    <div className="past-5-games">
+                        <table className="table">
+                            <thead>
+                                <tr>
+                                    <th className="has-text-centered">Player Position</th>
+                                    <th className="has-text-centered">Jersey Number</th>
+                                    <th className="has-text-centered">Games Played</th>
+                                    <th className="has-text-centered">Goals</th>
+                                    <th className="has-text-centered">Assists</th>
+                                    <th className="has-text-centered">Shots</th>
+                                    <th className="has-text-centered">Shooting Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <th className="has-text-centered">{playerPosition(playerStats.position)}</th>
+                                    <th className="has-text-centered">#{playerStats.sweaterNumber}</th>
+                                    <th className="has-text-centered">{playerStats.featuredStats.regularSeason.subSeason.gamesPlayed}</th>
+                                    <th className="has-text-centered">{playerStats.featuredStats.regularSeason.subSeason.goals}</th>
+                                    <th className="has-text-centered">{playerStats.featuredStats.regularSeason.subSeason.assists}</th>
+                                    <th className="has-text-centered">{playerStats.featuredStats.regularSeason.subSeason.shots}</th>
+                                    <th className="has-text-centered">{convertPercentage(playerStats.featuredStats.regularSeason.subSeason.shootingPctg)}%</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <div className="player-stat-container is-justify-content-center is-align-items-baseline">
-                    <div className="position">
-                        <h2 className="is-size-3 has-text-black">Position: </h2>
-                    </div>
-                    <div className="is-centered">
-                        <h2 className="has-text-black is-size-4 ml-4">{playerPosition(playerStats.position)}</h2>
-                    </div>
-                </div>
-                <div className="player-stat-container is-flex is-justify-content-center is-align-items-baseline">
-                    <div className="jersey-number">
-                        <h2 className="is-size-3 has-text-black">Jersey Number: </h2>
-                    </div>
-                    <div className="is-centered">
-                        <h2 className="has-text-black is-size-3 ml-4">#{playerStats.sweaterNumber}</h2>
-                    </div>
-                </div>
-                <div className="player-stat-container is-justify-content-center is-align-items-baseline">
-                    <div className="height">
-                        <h2 className="is-size-3 has-text-black">Height: </h2>
-                    </div>
-                    <div className="is-centered">
-                        <h2 className="has-text-black is-size-4 ml-4">{inchesToFeet(playerStats.heightInInches)}</h2>
-                    </div>
-                </div>
-                <div className="player-stat-container is-flex is-justify-content-center is-align-items-baseline">
-                    <div className="weight">
-                        <h2 className="is-size-3 has-text-black">Weight: </h2>
-                    </div>
-                    <div className="is-centered">
-                        <h2 className="has-text-black is-size-4 ml-4">{playerStats.weightInPounds} pounds</h2>
-                    </div>
-                </div>
-            </div>
+            </>
+
         )
     } else {
         return(

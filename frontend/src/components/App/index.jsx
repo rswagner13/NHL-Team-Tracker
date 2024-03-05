@@ -83,7 +83,7 @@ export default function App() {
       <nav className="navbar is-dark" role="navigation" aria-label="main_navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
-            <h1 className="is-size-2">NHL Team Tracker</h1>
+            <h1 className="is-size-2">NHL Now</h1>
           </a>
         </div>
         <div className="page-title is-flex is-align-items-center is-justify-content-center">
