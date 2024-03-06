@@ -69,6 +69,16 @@ JWT_SECRET_KEY="WHATEVER YOU WANT TO BE HERE"
   <img src="https://github.com/rswagner13/NHL-Team-Tracker/assets/152703739/62383495-7286-4a95-99d7-7e6d555925a9"/>
 </details>
 
+<details>
+  <summary>App Screenshots</summary>
+  <br>
+  <img src="https://github.com/rswagner13/NHL-Team-Tracker/assets/152703739/8b45ab6b-f1ce-4438-a875-39da066842c7"/>
+  <img src="https://github.com/rswagner13/NHL-Team-Tracker/assets/152703739/8110c78e-87c3-40b9-aeef-882cb3c69c67"/>
+  <img src="https://github.com/rswagner13/NHL-Team-Tracker/assets/152703739/4eb851be-ba47-4107-a14c-002de6dceb31"/>
+  <img src="https://github.com/rswagner13/NHL-Team-Tracker/assets/152703739/55d661ac-d511-4539-9574-88dfec41e3e7"/>
+  <img src="https://github.com/rswagner13/NHL-Team-Tracker/assets/152703739/322050cb-2510-4ed6-812d-e8c2a4645536"/>
+</details>
+
 ### Route Table
 
 |            URL          |   HTTP Verb    |  CRUD Action  |         React Component(s)      | Created Yet? |
