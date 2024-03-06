@@ -13,10 +13,10 @@ export default function TeamStats({ team }) {
     return (
         <>
             <div className="team-stats is-flex is-justify-content-center">
-                <table className="table">
+                <table className="table stats-table">
                     <tr>
                         <th className="has-text-centered">Conference:</th>
-                        <tr className="has-text-centered team-value">{team.conferenceName}</tr>
+                        <tr className="team-value">{team.conferenceName}</tr>
                     </tr>
                     <tr>
                         <th className="has-text-centered">Division:</th>

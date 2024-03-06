@@ -40,7 +40,7 @@
 git clone https://github.com/YOUR-GITHUB-USERNAME-HERE/NHL-Team-Tracker.git
 ```
 
-* Once your linked the repositories, enter the next line of code to download all dependicies for this app:
+* Once your linked the repositories, enter the next line of code to download all dependencies for this app:
 
 ```
 npm install
