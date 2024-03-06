@@ -6,7 +6,8 @@ export default function SkaterStats ({ setPageName }) {
     const [playerStats, setPlayerStats] = useState({})
     const [playerName, setPlayerName] = useState(setPageName(`${playerStats.firstName?.default} ${playerStats.lastName?.default}`))
     const params = useParams()
-
+    
+    // Checking and returning the player's position, rather than displaying a letter representing it
     function playerPosition(posCode) {
         if (posCode === 'C') {
             return 'Center'
@@ -26,6 +27,7 @@ export default function SkaterStats ({ setPageName }) {
         const data = await res.json()
         setPlayerStats(data)
     }
+
 
     function prev5Games(player) {
         const gamesArray = []
@@ -64,6 +66,7 @@ export default function SkaterStats ({ setPageName }) {
         return careerArray
     }
 
+    // Converts player's shooting percentage stat from a decimal into a percentage
     function convertPercentage(percentage) {
         let noShots = 0
         if(percentage) {
@@ -72,6 +75,7 @@ export default function SkaterStats ({ setPageName }) {
             return noShots.toFixed(2)
         }
     }
+
     function checkShots(shots) {
         if (shots) {
             return shots
