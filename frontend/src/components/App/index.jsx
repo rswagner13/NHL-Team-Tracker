@@ -45,13 +45,13 @@ export default function App() {
   let authLink = <div id="navbarBasicExample"
     className={`navbar-menu ${isActive ? "is-active" : ""}`}>
     <div className="navbar-end">
-      <a href="/auth/signup" className="navbar-item has-text-white is-size-5">
+      <a href="/auth/signup" className="navbar-item is-size-5">
         Sign Up
       </a>
-      <a href="/auth/login" className="navbar-item has-text-white is-size-5">
+      <a href="/auth/login" className="navbar-item is-size-5">
         Log In
       </a>
-      <a href="/teams" className="navbar-item has-text-white is-size-5">
+      <a href="/teams" className="navbar-item is-size-5">
         Teams
       </a>
     </div>
@@ -61,11 +61,11 @@ export default function App() {
       authLink =  <div id="navbarBasicExample"
         className={`navbar-menu ${isActive ? "is-active" : ""}`}>
       <div className="navbar-end">
-        <a href="/teams" className="navbar-item has-text-white is-size-5">
+        <a href="/teams" className="navbar-item is-size-5">
           Teams
         </a>
           <a 
-            className="log-out navbar-item has-text-white is-size-5"
+            className="log-out navbar-item is-size-5"
             onClick={() => {
               localStorage.clear()
               setLoginStatus(false)
@@ -80,7 +80,7 @@ export default function App() {
 
   return (
     <>
-      <nav className="navbar is-dark" role="navigation" aria-label="main_navigation">
+      <nav className="navbar is-dark is-flex" role="navigation" aria-label="main_navigation">
         <div className="navbar-brand">
           <a className="navbar-item" href="/">
             <h1 className="is-size-2">NHL Now</h1>
